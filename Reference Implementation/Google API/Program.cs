@@ -55,7 +55,7 @@ foreach (var chunk in chunks)
     var resp = await openAiService.Embeddings.CreateEmbedding(new EmbeddingCreateRequest
     {
         Input = chunk,
-        Model = "gemini-embedding-2"
+        Model = embeddingModel
     });
     var vector = resp.Data.First().Embedding;
     inMemoryDatabase.Add((chunk, vector));
@@ -92,7 +92,7 @@ while (true)
     var queryEmbeddingResponse = await openAiService.Embeddings.CreateEmbedding(new EmbeddingCreateRequest
     {
         Input = prompt,
-        Model = "gemini-embedding-2"
+        Model = embeddingModel
     });
     var queryVector = queryEmbeddingResponse.Data.First().Embedding;
     Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -145,7 +145,7 @@ while (true)
         }
     };
 
-    var completionResult = await openAiService.ChatCompletion.CreateCompletion(req, "gemini-3.5-flash-lite", ct);
+    var completionResult = await openAiService.ChatCompletion.CreateCompletion(req, chatCompletionModel, ct);
     Console.ForegroundColor = ConsoleColor.White;
     Console.WriteLine(completionResult.Choices[0].Message.Content);
 }
