@@ -3,11 +3,11 @@ using OpenAI;
 using OpenAI.Managers;
 using OpenAI.ObjectModels.RequestModels;
 using ChatMessage = OpenAI.ObjectModels.RequestModels.ChatMessage;
-
+using System.Text.RegularExpressions;
 //dotnet new console -n <project name>
 //dotnet add package Betalgo.OpenAI
-
 CancellationToken ct = new();
+
 
 var config = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
@@ -30,47 +30,57 @@ Console.WriteLine("===============\n1. Ingestion\n===============");
 
 Console.ForegroundColor = ConsoleColor.Blue;
 Console.WriteLine("--> Raw document is split into chunks...");
-string[] chunks =
-[
-    "The Great Barrier Reef is the world's largest coral reef system, located off Queensland, Australia.",
-    "Coral reefs are threatened by rising ocean temperatures, which cause coral bleaching.",
-    // "The Eiffel Tower was completed in 1889 and stands 330 meters tall in Paris, France.",
-    // "Photosynthesis is the process by which plants convert sunlight into chemical energy.",
-    // "The Great Wall of China stretches over 21,000 kilometers across northern China.",
-];
+
+string markdown = File.ReadAllText("../../sample_company_handbook.md");
+
+// var chunks = new List<MarkdownChunk>();
+var chunks = new List<(string Heading, string Text)>();
+
+// Match each ### heading and capture everything until
+// the next ### heading or the end of the document.
+var pattern =
+    @"(?ms)^###\s+(.+?)\r?\n(.*?)(?=^#{1,3}\s+|\z)";
+
+foreach (Match match in Regex.Matches(markdown, pattern))
+{
+    string heading = match.Groups[1].Value.Trim();
+    string text = match.Groups[2].Value.Trim();
+
+    chunks.Add((heading, text));
+}
 
 Console.ForegroundColor = ConsoleColor.DarkGray;
 Console.WriteLine("    Example of chunks:");
-for (int i = 0; i < Math.Min(3, chunks.Length); i++)
+for (int i = 0; i < Math.Min(3, chunks.Count); i++)
 {
     Console.WriteLine($"      ----- Chunk {i + 1} -----");
-    Console.WriteLine($"      {chunks[i]}");
+    Console.WriteLine($"      {chunks[i].Text}");
 }
 Console.WriteLine($"       ...\n");
-Console.WriteLine($"    Total chunks: {chunks.Length}\n");
+Console.WriteLine($"    Total chunks: {chunks.Count}\n");
 
-var inMemoryDatabase = new List<(string Text, List<double> Embedding)>();
+var inMemoryDatabase = new List<(string Source, string Text, List<double> Embedding)>();
 foreach (var chunk in chunks)
 {
     var resp = await openAiService.Embeddings.CreateEmbedding(new EmbeddingCreateRequest
     {
-        Input = chunk,
+        Input = chunk.Text,
         Model = embeddingModel
     });
-    var vector = resp.Data.First().Embedding;
-    inMemoryDatabase.Add((chunk, vector));
+    var chunkEmbedding = resp.Data.First().Embedding;
+    inMemoryDatabase.Add((chunk.Heading, chunk.Text, chunkEmbedding));
 }
 
 Console.ForegroundColor = ConsoleColor.Blue;
-Console.WriteLine("--> Each chunk is embedded into a vector embedding and stored in a in-memory database...");
+Console.WriteLine("--> Each chunk is embedded into a vector embedding and stored in a in-memory \"database\"...");
 
 Console.ForegroundColor = ConsoleColor.DarkGray;
 Console.WriteLine("    Example of embeddings:");
 for (int i = 0; i < Math.Min(3, inMemoryDatabase.Count); i++)
 {
     Console.WriteLine($"      ----- Chunk {i + 1} -----");
-    Console.WriteLine($"      Text               : {inMemoryDatabase[i].Text}");
-    Console.WriteLine($"      Embedding          : {string.Join(", ", inMemoryDatabase[i].Embedding.Take(3))}...");
+    Console.WriteLine($"      Text: {inMemoryDatabase[i].Text}");
+    Console.WriteLine($"      Embedding: {string.Join(", ", inMemoryDatabase[i].Embedding.Take(3))}...");
     Console.WriteLine($"      Embedding dimension: {inMemoryDatabase[i].Embedding.Count}");
 }
 Console.WriteLine($"      ...\n");
@@ -103,23 +113,23 @@ while (true)
     Console.ForegroundColor = ConsoleColor.Blue;
     Console.WriteLine("--> The query vector is compared with the in-memory chunk embeddings to find the top 3 relevant chunks...");
     var topChunks = inMemoryDatabase
-        .Select(d => (d.Text, Score: CosineSimilarity(queryVector, d.Embedding)))
+        .Select(d => (d.Source, d.Text, Score: CosineSimilarity(queryVector, d.Embedding)))
         .OrderByDescending(d => d.Score)
-        .Take(2)// TODO: UPDATE TO 3
+        .Take(3)
         .ToList();
 
     Console.ForegroundColor = ConsoleColor.DarkGray;
     Console.WriteLine($"    Top 3 retrieved chunks with their respective scores:");
     foreach (var c in topChunks)
     {
-        Console.WriteLine($"      {c.Text}    [{c.Score:F3}]");
+        Console.WriteLine($"      {c.Source}: {c.Text}    [{c.Score:F3}]");
     }
 
     Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine("\n===============\n3. Generation\n===============");
     Console.ForegroundColor = ConsoleColor.Blue;
     Console.WriteLine("--> The retrieved chunks are added to the original prompt...");
-    var context = string.Join("\n      ", topChunks.Select(c => c.Text));
+    var context = string.Join("\n      ", topChunks.Select(c => c.Source + ": " + c.Text));
     var augmentedPrompt = $"""
 
           Instruction:
@@ -161,3 +171,7 @@ double CosineSimilarity(List<double> a, List<double> b)
     }
     return dot / (Math.Sqrt(na) * Math.Sqrt(nb));
 }
+
+
+
+public record MarkdownChunk(string Heading, string Text);
