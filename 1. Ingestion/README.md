@@ -2,8 +2,8 @@
 
 For this stage, we will implementing `Raw document` -> `Chunks` -> `Embedding model` -> ~~`Vector database`~~ `In-memory "database"`.
 
-![RAG flowchart for dark theme](../assets/RAG_dark.png#gh-dark-mode-only)
-![RAG flowchart for light theme](../assets/RAG_light.png#gh-light-mode-only)
+![RAG flowchart for dark theme](../assets/RAG_Ingestion_dark.png#gh-dark-mode-only)
+![RAG flowchart for light theme](../assets/RAG_Ingestion_light.png#gh-light-mode-only)
 
 ---
 
@@ -184,7 +184,7 @@ Ingestion is done.
 
 The `sample_company_handbook.md` is broken down into chunks. Each chunk is embedded and stored in the in-memory "database".
 
-![RAG flowchart for dark theme](../assets/RAG_dark.png#gh-dark-mode-only)
-![RAG flowchart for light theme](../assets/RAG_light.png#gh-light-mode-only)
+![RAG flowchart for dark theme](../assets/RAG_Ingestion_dark.png#gh-dark-mode-only)
+![RAG flowchart for light theme](../assets/RAG_Ingestion_light.png#gh-light-mode-only)
 
 ### Next step: [2. Retrieval](../2.%20Retrieval/README.md)

@@ -1,9 +1,9 @@
 # Stage 3: Generation
 
-For this stage, we will implementing `Relevant chunk` -> `Augmented prompt` -> `LLM`.
+For this stage, we will implementing `Relevant chunk` + `Prompt/Query` -> `Augmented prompt` -> `LLM`.
 
-![RAG flowchart for dark theme](../assets/RAG_dark.png#gh-dark-mode-only)
-![RAG flowchart for light theme](../assets/RAG_light.png#gh-light-mode-only)
+![RAG flowchart for dark theme](../assets/RAG_Generation_dark.png#gh-dark-mode-only)
+![RAG flowchart for light theme](../assets/RAG_Generation_light.png#gh-light-mode-only)
 
 ---
 
@@ -81,5 +81,5 @@ Generation is now done.
 The relevant chunks are used to augment the prompt. The augmented prompt is used to generate the response.
 
 
-![RAG flowchart for dark theme](../assets/RAG_dark.png#gh-dark-mode-only)
-![RAG flowchart for light theme](../assets/RAG_light.png#gh-light-mode-only)
+![RAG flowchart for dark theme](../assets/RAG_Generation_dark.png#gh-dark-mode-only)
+![RAG flowchart for light theme](../assets/RAG_Generation_light.png#gh-light-mode-only)

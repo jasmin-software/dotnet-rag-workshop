@@ -3,8 +3,8 @@
 
 For this stage, we will implementing `User prmopt/query` -> `Embedding model` -> ~~`Vector database`~~ `In-memory "database"` -> `Relevant chunks`.
 
-![RAG flowchart for dark theme](../assets/RAG_dark.png#gh-dark-mode-only)
-![RAG flowchart for light theme](../assets/RAG_light.png#gh-light-mode-only)
+![RAG flowchart for dark theme](../assets/RAG_Retrieval_dark.png#gh-dark-mode-only)
+![RAG flowchart for light theme](../assets/RAG_Retrieval_light.png#gh-light-mode-only)
 
 ---
 
@@ -108,7 +108,7 @@ Retrieval is done now that we have the relevant chunks.
 The user's question is converted into a query vector, and it is used to compared with every stored chunk. The top 3 relevant chunks are retrieved.
 
 
-![RAG flowchart for dark theme](../assets/RAG_dark.png#gh-dark-mode-only)
-![RAG flowchart for light theme](../assets/RAG_light.png#gh-light-mode-only)
+![RAG flowchart for dark theme](../assets/RAG_Retrieval_dark.png#gh-dark-mode-only)
+![RAG flowchart for light theme](../assets/RAG_Retrieval_light.png#gh-light-mode-only)
 
 ### Next step: [3. Generation](../3.%20Generation/README.md)
