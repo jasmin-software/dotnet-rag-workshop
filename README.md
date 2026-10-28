@@ -1,8 +1,10 @@
 # Welcome to the RAG Workshop! 
 
 ## Overview
-- [0. Google API Key](./0.%20Google%20API%20Key/README.md) 
-- [1. Ingestion](./1.%20Ingestion/README.md) (start here if you already have your Google API Key)
+Need to get your Google API Key? Start here: [0. Google API Key](./0.%20Google%20API%20Key/README.md)
+
+Already have your API Key? You're ready to build!
+- [1. Ingestion](./1.%20Ingestion/README.md)
 - [2. Retrieval](./2.%20Retrieval/README.md)
 - [3. Generation](./3.%20Generation/README.md)
 
