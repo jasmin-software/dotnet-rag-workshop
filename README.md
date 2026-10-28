@@ -6,6 +6,9 @@
 - [2. Retrieval](./2.%20Retrieval/README.md)
 - [3. Generation](./3.%20Generation/README.md)
 
+## Want to try out the demo yourself?
+Clone this repo and go into `Reference Implementation/Google API`. Run `dotnet build`, and then `dotnet run` to start the application.
+
 ## Looking for something else?
 - [Slides](https://docs.google.com/presentation/d/1cMvSQthzRpgQDITtNyBAquh-G-0KG14XX1JbdMfm89g/)
 - [Meetup event](https://www.meetup.com/net-user-group-of-bc/events/316675043/)
