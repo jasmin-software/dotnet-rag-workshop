@@ -7,4 +7,8 @@
 - [3. Generation](./3.%20Generation/README.md)
 
 ## Looking for something else?
-[Slides]() #TODO
+- [Slides](https://docs.google.com/presentation/d/1cMvSQthzRpgQDITtNyBAquh-G-0KG14XX1JbdMfm89g/)
+- [Meetup event](https://www.meetup.com/net-user-group-of-bc/events/316675043/)
+- Previous workshops:
+    - [AGUI](https://github.com/jasmin-software/dotnet_agui_workshop)
+    - [A2A](https://github.com/jasmin-software/dotnet_a2a_workshop)
