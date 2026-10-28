@@ -13,7 +13,7 @@
 ![RAG flowchart for dark theme](./assets/RAG_dark.png#gh-dark-mode-only)
 ![RAG flowchart for light theme](./assets/RAG_light.png#gh-light-mode-only)
 
-### Want to try out the demo yourself?
+## Want to try out the demo yourself?
 Clone this repo and go into `Reference Implementation/Google API`. 
 
 Run `dotnet build`, and then `dotnet run` to start the application.
