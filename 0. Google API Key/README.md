@@ -1,7 +1,7 @@
 
 # Google API Key
 
-1. With a signed in Google account, head over to [Google AI Studio](https://aistudio.google.com/api-keys).
+1. With a signed-in Google account, head over to [Google AI Studio](https://aistudio.google.com/api-keys).
 
 2. Click on `Create API Key` on the top right.
 
