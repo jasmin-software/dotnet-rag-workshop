@@ -2,12 +2,9 @@
 using OpenAI;
 using OpenAI.Managers;
 using OpenAI.ObjectModels.RequestModels;
-using ChatMessage = OpenAI.ObjectModels.RequestModels.ChatMessage;
 using System.Text.RegularExpressions;
-//dotnet new console -n <project name>
-//dotnet add package Betalgo.OpenAI
-CancellationToken ct = new();
 
+CancellationToken ct = new();
 
 var config = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
@@ -171,7 +168,3 @@ double CosineSimilarity(List<double> a, List<double> b)
     }
     return dot / (Math.Sqrt(na) * Math.Sqrt(nb));
 }
-
-
-
-public record MarkdownChunk(string Heading, string Text);
