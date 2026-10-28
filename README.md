@@ -1,7 +1,7 @@
 # Welcome to the RAG Workshop! 
 
 ## Overview
-**Need to get a Google API Key?** Start here: [0. Google API Key](./0.%20Google%20API%20Key/README.md).
+**Need to get a Google Studio API Key?** Start here: [0. Google Studio API Key](./0.%20Google%20Studio%20API%20Key/README.md).
 
 **Already have your API Key?** You're ready to build!
 - [1. Ingestion](./1.%20Ingestion/README.md)

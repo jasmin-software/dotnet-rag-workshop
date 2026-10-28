@@ -9,7 +9,7 @@ For this stage, we will implementing `Raw document` -> `Chunks` -> `Embedding mo
 
 ## 1. Project setup
 
-The comments at the beginning show the basic .NET commands:
+Run these command to set up the project:
 
 ```bash
 dotnet new console -n dotnet_rag
@@ -17,7 +17,7 @@ cd dotnet_rag
 dotnet add package Betalgo.OpenAI
 ```
 
-Create a file called `appsettings.Development.json` in the project root directory, paste this in the file:
+Create a file called `appsettings.Development.json` in the project root directory. Paste this in the file:
 
 ```json
 {
@@ -27,11 +27,11 @@ Create a file called `appsettings.Development.json` in the project root director
     "EmbeddingModel": "gemini-embedding-2"
 }
 ```
-Replace the token with what you got in [0. Google AI Studio Key]().
+Replace the token with what you got in [0. Google Studio API Key](../0.%20Google%20Studio%20API%20Key/README.md).
 
 ## 2. Load configuration
 
-Open `Program.cs` and add these:
+Add the following in `Program.cs`:
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -45,7 +45,7 @@ CancellationToken ct = new();
 
 The cancellation token is later passed into the chat-completion request.
 
-The application reads its settings from `appsettings.Development.json`:
+Add the following to read the settings from `appsettings.Development.json`:
 
 ```csharp
 var config = new ConfigurationBuilder()
@@ -54,11 +54,7 @@ var config = new ConfigurationBuilder()
                  optional: true,
                  reloadOnChange: true)
     .Build();
-```
 
-It then retrieves four configuration values:
-
-```csharp
 string? token = config["Token"]
     ?? throw new Exception("Token not found in appsettings.Development.json");
 
@@ -79,9 +75,9 @@ These represent:
 - `ChatCompletionModel` - model used to generate the final answer.
 - `EmbeddingModel` - model used to convert text into vectors.
 
-If a required value is missing, the program stops immediately with an exception.
+If a required value is missing, the program stops immediately.
 
-The API client is then initialized:
+Add the following to to initialize the API client:
 
 ```csharp
 var openAiService = new OpenAIService(new OpenAiOptions()
@@ -99,7 +95,7 @@ Download and save `sample_company_handbook.md` in your project, and add this lin
 
 ```csharp
 string markdown =
-    File.ReadAllText("../sample_company_handbook.md");
+    File.ReadAllText("./sample_company_handbook.md");
 ```
 
 Instead of embedding the entire handbook as one large piece of text, the application divides it into smaller **chunks**.
@@ -108,7 +104,7 @@ Instead of embedding the entire handbook as one large piece of text, the applica
 
 ## 4. Split the document into chunks
 
-Chunks are stored as tuples and the Markdown sections are identified with a regular expression:
+Add the following to split the chunks using regular expression and store them as tuples:
 
 ```csharp
 var chunks = new List<(string Heading, string Text)>();
@@ -131,7 +127,7 @@ About the regular expression:
 - `(.*?)` captures the text following the heading.
 - The final lookahead stops the chunk when another level 1–3 Markdown heading or the end of the document is encountered.
 
-The result is approximately:
+This is what the result would look like:
 
 ```text
 Chunk 1

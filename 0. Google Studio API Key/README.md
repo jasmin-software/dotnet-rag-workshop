@@ -1,5 +1,5 @@
 
-# Google API Key
+# Google Studio API Key
 
 1. With a signed-in Google account, head over to [Google AI Studio](https://aistudio.google.com/api-keys).
 
