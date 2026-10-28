@@ -1,12 +1,14 @@
 # Welcome to the RAG Workshop! 
 
 ## Overview
-Need to get your Google API Key? Start here: [0. Google API Key](./0.%20Google%20API%20Key/README.md)
+**Need to get a Google API Key?** Start here: [0. Google API Key](./0.%20Google%20API%20Key/README.md).
 
-Already have your API Key? You're ready to build!
+**Already have your API Key?** You're ready to build!
 - [1. Ingestion](./1.%20Ingestion/README.md)
 - [2. Retrieval](./2.%20Retrieval/README.md)
 - [3. Generation](./3.%20Generation/README.md)
+
+<br>
 
 ![RAG flowchart for dark theme](./assets/RAG_dark.png#gh-dark-mode-only)
 ![RAG flowchart for light theme](./assets/RAG_light.png#gh-light-mode-only)
