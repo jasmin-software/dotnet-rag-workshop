@@ -41,7 +41,7 @@ Add this in the while loop to get the question from the user and embed it:
         queryEmbeddingResponse.Data.First().Embedding;
 ```
 
-> [!TIP] 
+<!-- > [!TIP] 
 >
 > **Note**: the query does not have to contain exactly the same words as the document.
 >
@@ -53,7 +53,7 @@ Add this in the while loop to get the question from the user and embed it:
 >
 > Because embeddings represent semantic relationships, `"work from home"` and `"work remotely"` can still be considered similar.
 >
-> This is the major advantage over simple keyword matching.
+> This is the major advantage over simple keyword matching. -->
 
 ---
 
@@ -103,12 +103,8 @@ double CosineSimilarity(List<double> a, List<double> b)
 }
 ```
 
-Retrieval is done now that we have the relevant chunks.
+We've implemented the Retrieval phase.
 
-The user's question is converted into a query vector, and is compared with every stored chunk. The top 3 relevant chunks are retrieved.
-
-
-![RAG flowchart for dark theme](../assets/RAG_Retrieval_dark.png#gh-dark-mode-only)
-![RAG flowchart for light theme](../assets/RAG_Retrieval_light.png#gh-light-mode-only)
+The user's question will be converted into a query vector. It will then be compared with every stored chunk so that the top 3 relevant ones would be retrieved.
 
 ### Next step: [3. Generation](../3.%20Generation/README.md)

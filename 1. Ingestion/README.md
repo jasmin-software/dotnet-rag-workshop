@@ -176,8 +176,8 @@ foreach (var chunk in chunks)
 }
 ```
 
-Now, ingestion is done. 
+We've implemented the Ingestion phase.
 
-The `sample_company_handbook.md` is broken down into chunks. Each chunk is embedded and stored in the in-memory "database".
+The `sample_company_handbook.md` will be broken down into chunks. Each chunk will then be embedded and stored in the in-memory "database".
 
 ### Next step: [2. Retrieval](../2.%20Retrieval/README.md)
