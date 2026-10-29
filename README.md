@@ -2,7 +2,7 @@
 
 RAG stands for **R**etrieval-**A**ugmented **G**eneration.
 
-In this workshop, we'll be **building a RAG application** in C#, using Google Gemini API, to **generate answers** using **information retrieved** from a document.
+In this workshop, we'll be **building a RAG application** in C#, with Google Gemini API, to **generate answers** using **information retrieved** from a document.
 
 ![RAG flowchart for dark theme](./assets/RAG_dark.png#gh-dark-mode-only)
 ![RAG flowchart for light theme](./assets/RAG_light.png#gh-light-mode-only)
