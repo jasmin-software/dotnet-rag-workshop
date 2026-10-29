@@ -52,17 +52,10 @@ var config = new ConfigurationBuilder()
                  reloadOnChange: true)
     .Build();
 
-string? token = config["Token"]
-    ?? throw new Exception("Token not found in appsettings.Development.json");
-
-string? endpoint = config["Endpoint"]
-    ?? throw new Exception("Endpoint not found in appsettings.Development.json");
-
-string? chatCompletionModel = config["ChatCompletionModel"]
-    ?? throw new Exception("ChatCompletionModel not found in appsettings.Development.json");
-
-string? embeddingModel = config["EmbeddingModel"]
-    ?? throw new Exception("EmbeddingModel not found in appsettings.Development.json");
+string? token = config["Token"] ?? throw new Exception("Token not found");
+string? endpoint = config["Endpoint"] ?? throw new Exception("Endpoint not found");
+string? chatCompletionModel = config["ChatCompletionModel"] ?? throw new Exception("ChatCompletionModel not found");
+string? embeddingModel = config["EmbeddingModel"] ?? throw new Exception("EmbeddingModel not found");
 ```
 
 These represent:
