@@ -4,8 +4,6 @@ using OpenAI.Managers;
 using OpenAI.ObjectModels.RequestModels;
 using System.Text.RegularExpressions;
 
-CancellationToken ct = new();
-
 var config = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -152,7 +150,7 @@ while (true)
         }
     };
 
-    var completionResult = await openAiService.ChatCompletion.CreateCompletion(req, chatCompletionModel, ct);
+    var completionResult = await openAiService.ChatCompletion.CreateCompletion(req, chatCompletionModel);
     Console.ForegroundColor = ConsoleColor.White;
     Console.WriteLine(completionResult.Choices[0].Message.Content);
 }

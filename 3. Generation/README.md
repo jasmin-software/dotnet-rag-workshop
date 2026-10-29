@@ -67,8 +67,7 @@ In the same while loop, create and send a chat-completion request, and print the
      var completionResult =
      await openAiService.ChatCompletion.CreateCompletion(
           req,
-          chatCompletionModel,
-          ct);
+          chatCompletionModel);
 
      Console.WriteLine(
           completionResult.Choices[0].Message.Content);
