@@ -12,9 +12,11 @@ For this stage, we will be implementing `User prmopt/query` -> `Embedding model`
 
 After ingestion, the program enters an interactive loop where the user can ask questions about the handbook.
 
-Create a while loop in `Program.cs`, and we will build up what goes in it.
+Add the print statement and create a while loop in `Program.cs`, and we will build up what goes in the loop.
 
 ```csharp
+Console.WriteLine("Ready for user's questions!");
+
 while (true)
 {
 
