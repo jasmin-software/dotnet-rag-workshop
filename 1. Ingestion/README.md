@@ -69,7 +69,7 @@ These represent:
 
 - `Token` - Google AI Studio API Key.
 - `Endpoint` - Google Gemini API.
-- `ChatCompletionModel` - model used for chat completion.
+- `ChatCompletionModel` - model used for generating a text response.
 - `EmbeddingModel` - model used to convert text into embedding vectors.
 
 If a required value is missing, the program stops immediately.
@@ -128,7 +128,7 @@ foreach (Match match in Regex.Matches(markdown, pattern))
 > - `(.*?)` captures the text following the heading.
 > - The final lookahead stops the chunk when another level 1–3 Markdown heading or the end of the document is encountered.
 >
-> Here's an example what the result would look like
+> Here's an example what the result would look like:
 > 
 > ```text
 > Chunk 1
@@ -143,8 +143,6 @@ foreach (Match match in Regex.Matches(markdown, pattern))
 > Heading: Sick Leave
 > Text: Employees receive 10 paid sick days per year.
 > ```
-
----
 
 ## 5. Create embeddings
 
