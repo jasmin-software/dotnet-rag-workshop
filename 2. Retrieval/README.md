@@ -1,7 +1,7 @@
 
 # Stage 2: Retrieval
 
-For this stage, we will implementing `User prmopt/query` -> `Embedding model` -> ~~`Vector database`~~ `In-memory "database"` -> `Relevant chunks`.
+For this stage, we will be implementing `User prmopt/query` -> `Embedding model` -> ~~`Vector database`~~ `In-memory "database"` -> `Relevant chunks`.
 
 ![RAG flowchart for dark theme](../assets/RAG_Retrieval_dark.png#gh-dark-mode-only)
 ![RAG flowchart for light theme](../assets/RAG_Retrieval_light.png#gh-light-mode-only)
@@ -105,7 +105,7 @@ double CosineSimilarity(List<double> a, List<double> b)
 
 Retrieval is done now that we have the relevant chunks.
 
-The user's question is converted into a query vector, and it is used to compared with every stored chunk. The top 3 relevant chunks are retrieved.
+The user's question is converted into a query vector, and is compared with every stored chunk. The top 3 relevant chunks are retrieved.
 
 
 ![RAG flowchart for dark theme](../assets/RAG_Retrieval_dark.png#gh-dark-mode-only)

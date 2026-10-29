@@ -76,10 +76,29 @@ Finally, the generated response is printed:
           completionResult.Choices[0].Message.Content);
 ```
 
-Generation is now done.
+Now, we've implemented the generation phase of RAG, and you can start interacting with the program.
 
-The relevant chunks are used to augment the prompt. The augmented prompt is used to generate the response.
+Run `dotnet build` and `dotnet run`. You can start asking questions when you see the following in the console:
 
+```text
+Ready for user's questions!
 
-![RAG flowchart for dark theme](../assets/RAG_Generation_dark.png#gh-dark-mode-only)
-![RAG flowchart for light theme](../assets/RAG_Generation_light.png#gh-light-mode-only)
+> 
+```
+> [!TIP]
+>
+> Your questions will be embeded into a query vector, and will be compared to other embeddings in the in-memory "database" to retrieve the top 3 relevant chunks.
+>
+> The relevant chunks will be used to augment your original question.
+>
+> Lastly, the augmented prompt will be used to generate the response.
+
+Here's what the response might look like:
+```text
+Ready for user's questions!
+
+> When can I work from home?
+
+Based on the provided context, you are allowed to work from home on Tuesday, unless an exception is approved by the company.
+```
+

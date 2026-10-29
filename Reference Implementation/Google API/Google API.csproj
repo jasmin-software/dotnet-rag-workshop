@@ -10,8 +10,6 @@
 
   <ItemGroup>
     <PackageReference Include="Betalgo.OpenAI" Version="8.7.2" />
-    <!-- <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.14" /> -->
-    <!-- <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.0.14" /> -->
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.14" />
   </ItemGroup>
 

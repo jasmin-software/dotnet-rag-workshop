@@ -15,6 +15,7 @@ Run these command to set up the project:
 dotnet new console -n dotnet_rag
 cd dotnet_rag
 dotnet add package Betalgo.OpenAI
+dotnet add package Microsoft.Extensions.Configuration.Json
 ```
 
 Create a file called `appsettings.Development.json` in the project root directory. Paste this in the file:
@@ -91,14 +92,17 @@ var openAiService = new OpenAIService(new OpenAiOptions()
 
 ## 3. Read the source document
 
-Download and save `sample_company_handbook.md` in your project, and add this line to read it:
+Download [`sample_company_handbook.md`](../sample_company_handbook.md) by clicking on the `Download raw file` button on the top right.
+
+![alt text](../assets/download_raw_file.png)
+
+
+ Save the file in your project and add this line in `Program.cs` to read it:
 
 ```csharp
 string markdown =
     File.ReadAllText("./sample_company_handbook.md");
 ```
-
-Instead of embedding the entire handbook as one large piece of text, the application divides it into smaller **chunks**.
 
 ---
 
