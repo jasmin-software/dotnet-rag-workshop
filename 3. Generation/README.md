@@ -97,10 +97,11 @@ Ready for user's questions!
 
 > When can I wfh?
 
-Based on the provided context, you are allowed to work from home (WFH) on Tuesday, unless an exception is approved by the company.
+Based on the provided context, you are allowed to work from home (WFH) 
+on Tuesday, unless an exception is approved by the company.
 ```
 
-> [!IMPORTANT] 
+> [!TIP] 
 >
 > **Note**: the question does not have to contain exactly the same words as the document.
 >
