@@ -81,7 +81,7 @@ var openAiService = new OpenAIService(new OpenAiOptions()
 
 ## 3. Read the source document
 
-Download [`sample_company_handbook.md`](../sample_company_handbook.md) by clicking on the `Download raw file` button on the top right.
+Download [`sample_company_handbook.md`](/Reference%20Implementation/Google%20API/sample_company_handbook.md) by clicking on the `Download raw file` button on the top right.
 
 ![alt text](../assets/download_raw_file.png)
 
