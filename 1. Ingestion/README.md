@@ -40,11 +40,7 @@ using OpenAI;
 using OpenAI.Managers;
 using OpenAI.ObjectModels.RequestModels;
 using System.Text.RegularExpressions;
-
-CancellationToken ct = new();
 ```
-
-The cancellation token is later passed into the chat-completion request.
 
 Add the following to read the settings from `appsettings.Development.json`:
 
@@ -71,10 +67,10 @@ string? embeddingModel = config["EmbeddingModel"]
 
 These represent:
 
-- `Token` - API authentication credential.
-- `Endpoint` - API base endpoint.
-- `ChatCompletionModel` - model used to generate the final answer.
-- `EmbeddingModel` - model used to convert text into vectors.
+- `Token` - Google AI Studio API Key.
+- `Endpoint` - Google Gemini API.
+- `ChatCompletionModel` - model used for chat completion.
+- `EmbeddingModel` - model used to convert text into embedding vectors.
 
 If a required value is missing, the program stops immediately.
 
@@ -125,27 +121,28 @@ foreach (Match match in Regex.Matches(markdown, pattern))
 }
 ```
 
-About the regular expression:
-
-- `(.+?)` captures the heading.
-- `(.*?)` captures the text following the heading.
-- The final lookahead stops the chunk when another level 1–3 Markdown heading or the end of the document is encountered.
-
-This is what the result would look like:
-
-```text
-Chunk 1
-Heading: Vacation Policy
-Text: Employees receive 20 vacation days per year.
-
-Chunk 2
-Heading: Remote Work
-Text: Employees may work remotely three days per week.
-
-Chunk 3
-Heading: Sick Leave
-Text: Employees receive 10 paid sick days per year.
-```
+> [!TIP]
+> About the regular expression:
+>
+> - `(.+?)` captures the heading.
+> - `(.*?)` captures the text following the heading.
+> - The final lookahead stops the chunk when another level 1–3 Markdown heading or the end of the document is encountered.
+>
+> Here's an example what the result would look like
+> 
+> ```text
+> Chunk 1
+> Heading: Vacation Policy
+> Text: Employees receive 20 vacation days per year.
+> 
+> Chunk 2
+> Heading: Remote Work
+> Text: Employees may work remotely three days per week.
+> 
+> Chunk 3
+> Heading: Sick Leave
+> Text: Employees receive 10 paid sick days per year.
+> ```
 
 ---
 
@@ -180,7 +177,7 @@ foreach (var chunk in chunks)
 }
 ```
 
-Ingestion is done. 
+Now, ingestion is done. 
 
 The `sample_company_handbook.md` is broken down into chunks. Each chunk is embedded and stored in the in-memory "database".
 

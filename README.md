@@ -1,4 +1,11 @@
-# Welcome to the RAG Workshop! 
+# Welcome to the RAG Workshop!
+
+RAG stands for **R**etrieval-**A**ugmented **G**eneration.
+
+In this workshop, we'll be **building a RAG application** in C#, using Google Gemini API, to **generate answers** using **information retrieved** from a document.
+
+![RAG flowchart for dark theme](./assets/RAG_dark.png#gh-dark-mode-only)
+![RAG flowchart for light theme](./assets/RAG_light.png#gh-light-mode-only)
 
 ## Overview
 **Need to get a Google Studio API Key?** Start here: [0. Google Studio API Key](./0.%20Google%20Studio%20API%20Key/README.md).
@@ -7,11 +14,6 @@
 - [1. Ingestion](./1.%20Ingestion/README.md)
 - [2. Retrieval](./2.%20Retrieval/README.md)
 - [3. Generation](./3.%20Generation/README.md)
-
-<br>
-
-![RAG flowchart for dark theme](./assets/RAG_dark.png#gh-dark-mode-only)
-![RAG flowchart for light theme](./assets/RAG_light.png#gh-light-mode-only)
 
 ## Want to try out the demo yourself?
 
