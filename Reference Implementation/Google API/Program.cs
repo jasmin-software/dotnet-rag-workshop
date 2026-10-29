@@ -53,6 +53,9 @@ for (int i = 0; i < Math.Min(3, chunks.Count); i++)
 Console.WriteLine($"       ...\n");
 Console.WriteLine($"    Total chunks: {chunks.Count}\n");
 
+Console.ForegroundColor = ConsoleColor.Blue;
+Console.WriteLine("--> Each chunk is embedded into a vector embedding and stored in a in-memory \"database\"...");
+
 var inMemoryDatabase = new List<(string Source, string Text, List<double> Embedding)>();
 foreach (var chunk in chunks)
 {
@@ -64,9 +67,6 @@ foreach (var chunk in chunks)
     var chunkEmbedding = resp.Data.First().Embedding;
     inMemoryDatabase.Add((chunk.Heading, chunk.Text, chunkEmbedding));
 }
-
-Console.ForegroundColor = ConsoleColor.Blue;
-Console.WriteLine("--> Each chunk is embedded into a vector embedding and stored in a in-memory \"database\"...");
 
 Console.ForegroundColor = ConsoleColor.DarkGray;
 Console.WriteLine("    Example of embeddings:");
