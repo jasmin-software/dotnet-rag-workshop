@@ -143,6 +143,7 @@ foreach (Match match in Regex.Matches(markdown, pattern))
 > Heading: Sick Leave
 > Text: Employees receive 10 paid sick days per year.
 > ```
+---
 
 ## 5. Create embeddings
 
@@ -178,8 +179,5 @@ foreach (var chunk in chunks)
 Now, ingestion is done. 
 
 The `sample_company_handbook.md` is broken down into chunks. Each chunk is embedded and stored in the in-memory "database".
-
-![RAG flowchart for dark theme](../assets/RAG_Ingestion_dark.png#gh-dark-mode-only)
-![RAG flowchart for light theme](../assets/RAG_Ingestion_light.png#gh-light-mode-only)
 
 ### Next step: [2. Retrieval](../2.%20Retrieval/README.md)
