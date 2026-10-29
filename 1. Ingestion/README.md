@@ -175,7 +175,7 @@ foreach (var chunk in chunks)
         (chunk.Heading, chunk.Text, chunkEmbedding));
 }
 ```
-
+---
 We've implemented the Ingestion phase.
 
 The `sample_company_handbook.md` will be broken down into chunks. Each chunk will then be embedded and stored in the in-memory "database".

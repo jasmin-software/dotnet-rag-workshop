@@ -13,7 +13,8 @@
 
 4. Click on `Copy key` in the next pop-up and **save** it. 
 
-<br>
+
+---
 
 Now, you're ready to build!
 ### Next step: [1. Ingestion](../1.%20Ingestion/README.md)

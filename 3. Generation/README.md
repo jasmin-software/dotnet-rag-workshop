@@ -29,29 +29,31 @@ In the same while loop, combine the retrieved chunks and add it to the prompt:
      """;
 ```
 
-This step explains the term **Retrieval-Augmented Generation**:
-
-```text
-Retrieval
-   ↓
-Find relevant information
-
-Augmentation
-   ↓
-Add that information to the prompt
-
-Generation
-   ↓
-Ask the language model to produce an answer
-```
-
-The model is not being retrained on the handbook. The handbook information is supplied as context at query time.
+> [!IMPORTANT]
+> 
+> This step explains the term **Retrieval-Augmented Generation**:
+> 
+> ```text
+> Retrieval
+>    ↓
+> Find relevant information
+> 
+> Augmentation
+>    ↓
+> Add that information to the prompt
+> 
+> Generation
+>    ↓
+> Ask the language model to produce an answer
+> ```
+> 
+> The model is not being retrained on the handbook. The handbook information is supplied as context at query time.
 
 ---
 
 ## 10. Generate the final answer
 
-In the same while loop, create and send a chat-completion request:
+In the same while loop, create and send a chat-completion request, and print the response:
 
 ```csharp
      var req = new ChatCompletionCreateRequest
@@ -67,16 +69,15 @@ In the same while loop, create and send a chat-completion request:
           req,
           chatCompletionModel,
           ct);
-```
 
-Finally, the generated response is printed:
-
-```csharp
      Console.WriteLine(
           completionResult.Choices[0].Message.Content);
 ```
+---
 
-Now, we've implemented the generation phase of RAG, and you can start interacting with the program.
+## 11. Try it out!
+
+Now, we've implemented the Generation phase of RAG, and you can start interacting with the program.
 
 Run `dotnet build` and `dotnet run`. You can start asking questions when you see the following in the console:
 
@@ -102,3 +103,4 @@ Ready for user's questions!
 Based on the provided context, you are allowed to work from home on Tuesday, unless an exception is approved by the company.
 ```
 
+That's all for the workshop!

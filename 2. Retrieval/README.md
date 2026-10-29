@@ -102,7 +102,7 @@ double CosineSimilarity(List<double> a, List<double> b)
     return dot / (Math.Sqrt(na) * Math.Sqrt(nb));
 }
 ```
-
+---
 We've implemented the Retrieval phase.
 
 The user's question will be converted into a query vector. It will then be compared with every stored chunk so that the top 3 relevant ones would be retrieved.
