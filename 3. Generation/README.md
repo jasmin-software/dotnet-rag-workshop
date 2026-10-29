@@ -29,7 +29,7 @@ In the same while loop, combine the retrieved chunks and add it to the prompt:
      """;
 ```
 
-> [!IMPORTANT]
+> [!NOTE]
 > 
 > This step explains the term **Retrieval-Augmented Generation**:
 > 
@@ -86,21 +86,30 @@ Ready for user's questions!
 
 > 
 ```
-> [!TIP]
->
-> Your questions will be embeded into a query vector, and will be compared to other embeddings in the in-memory "database" to retrieve the top 3 relevant chunks.
->
-> The relevant chunks will be used to augment your original question.
->
-> Lastly, the augmented prompt will be used to generate the response.
+To reiterate, here's what's happening behind the scene:
+1. Your questions will be embeded into a query vector, and compared to other embeddings in the in-memory "database" to retrieve the top 3 relevant chunks.
+2. The relevant chunks will be used to augment your original question.
+3. The augmented prompt will be used to generate the response.
 
 Here's what the response might look like:
 ```text
 Ready for user's questions!
 
-> When can I work from home?
+> When can I wfh?
 
-Based on the provided context, you are allowed to work from home on Tuesday, unless an exception is approved by the company.
+Based on the provided context, you are allowed to work from home (WFH) on Tuesday, unless an exception is approved by the company.
 ```
 
-That's all for the workshop!
+> [!IMPORTANT] 
+>
+> **Note**: the question does not have to contain exactly the same words as the document.
+>
+> For example:
+> ```text
+> Document: "Employees may work remotely..."
+> Question: "How many days can I work from home?"
+> ```
+>
+> Because embeddings represent semantic relationships, `"work from home"` and `"work remotely"` can still be considered similar.
+>
+> This is the major advantage over simple keyword matching.

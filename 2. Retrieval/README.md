@@ -41,20 +41,6 @@ Add this in the while loop to get the question from the user and embed it:
         queryEmbeddingResponse.Data.First().Embedding;
 ```
 
-<!-- > [!TIP] 
->
-> **Note**: the query does not have to contain exactly the same words as the document.
->
-> For example:
-> ```text
-> Document: "Employees may work remotely..."
-> Question: "How many days can I work from home?"
-> ```
->
-> Because embeddings represent semantic relationships, `"work from home"` and `"work remotely"` can still be considered similar.
->
-> This is the major advantage over simple keyword matching. -->
-
 ---
 
 ## 7. Get the relevant chunks
@@ -102,6 +88,42 @@ double CosineSimilarity(List<double> a, List<double> b)
     return dot / (Math.Sqrt(na) * Math.Sqrt(nb));
 }
 ```
+
+> [!NOTE]
+> 
+> If you're interested in the math, cosine similarity is:
+> 
+> ```text
+>                  A · B
+> cos(A, B) = ───────────────
+>              ||A|| × ||B||
+> ```
+> 
+> The code calculates three quantities:
+> 
+> ```csharp
+> dot += a[i] * b[i];
+> ```
+> 
+> This computes the **dot product**.
+> 
+> ```csharp
+> na += a[i] * a[i];
+> nb += b[i] * b[i];
+> ```
+> 
+> These values are used to calculate the magnitudes of the vectors.
+> 
+> Finally:
+> 
+> ```csharp
+> dot / (Math.Sqrt(na) * Math.Sqrt(nb))
+> ```
+> 
+> produces the cosine similarity.
+> 
+> A higher cosine similarity indicates that the vectors point in more similar directions and therefore usually represent more semantically related text.
+
 ---
 We've implemented the Retrieval phase.
 
