@@ -8,7 +8,7 @@ CancellationToken ct = new();
 
 var config = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.Development.json", optional: true, reloadOnChange: true)
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
     .Build();
 
 string? token = config["Token"] ?? throw new Exception("Token not found in appsettings.Development.json");

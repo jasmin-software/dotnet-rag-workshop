@@ -14,9 +14,10 @@
 ![RAG flowchart for light theme](./assets/RAG_light.png#gh-light-mode-only)
 
 ## Want to try out the demo yourself?
-Clone this repo and go into `Reference Implementation/Google API`. 
 
-Run `dotnet build`, and then `dotnet run` to start the application.
+1. Clone this repo and go into `Reference Implementation/Google API`. 
+2. Go to the `appsettings.json` and paste your Google Studio API Key there.
+3. Run `dotnet build`, and then `dotnet run` to start the application.
 
 
 ## Looking for something else?
