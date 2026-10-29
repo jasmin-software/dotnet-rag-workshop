@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": ".NET Launch",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/Debug/net10.0/Google API.dll",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

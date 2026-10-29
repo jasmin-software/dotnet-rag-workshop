@@ -26,9 +26,8 @@ Console.WriteLine("===============\n1. Ingestion\n===============");
 Console.ForegroundColor = ConsoleColor.Blue;
 Console.WriteLine("--> Raw document is split into chunks...");
 
-string markdown = File.ReadAllText("./sample_company_handbook.md");
+string markdown = File.ReadAllText("sample_company_handbook.md");
 
-// var chunks = new List<MarkdownChunk>();
 var chunks = new List<(string Heading, string Text)>();
 
 // Match each ### heading and capture everything until
